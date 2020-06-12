@@ -1,0 +1,122 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/f18235f14d.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Font Google -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <title>Keenok Shop</title>
+    <link rel="stylesheet" href="css/styles.min.css" />
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="logo-container">
+        <a href="hompage.html"
+          ><div class="logo"><img src="img/crow-pngrepo-com.png" alt="" /></div
+        ></a>
+        <!-- <i class="fas fa-crow"></i> -->
+      </div>
+      <div class="options">
+        <a href="shop.html"><div class="option">SHOP</div></a>
+        <a href="contact.html"><div class="option">CONTACT</div></a>
+        <a href="sign-in-sign-up.html"><div class="option">SIGN IN</div></a>
+      </div>
+    </div>
+
+    <div class="sign-in-and-sign-up">
+      <div class="sign-in">
+        <h2 class="title">I already have an account</h2>
+        <span>Sign in with your email and password</span>
+        <form action="">
+          <div class="group">
+            <input
+              type="email"
+              class="form-input"
+              name="email"
+              required=""
+              value=""
+            />
+            <label class="form-input-label">email</label>
+          </div>
+
+          <div class="group">
+            <input
+              type="password"
+              class="form-input"
+              name="password"
+              required=""
+              value=""
+            />
+            <label class="form-input-label">Password</label>
+          </div>
+          <div class="buttons">
+            <button type="submit" class="custom-button">Sign In</button>
+            <button type="button" class="custom-button google-signin">
+              Sign in with Google
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="sign-up">
+        <h2 class="title">I do not have a account</h2>
+        <span>Sign up with your email and password</span>
+        <form action="" class="sign-up-form">
+          <div class="group">
+            <input
+              type="text"
+              class="form-input"
+              name="displayName"
+              required=""
+              value=""
+            />
+            <label class="form-input-label">Display Name</label>
+          </div>
+          <div class="group">
+            <input
+              type="email"
+              class="form-input"
+              name="email"
+              required=""
+              value=""
+            />
+            <label class="form-input-label">email</label>
+          </div>
+
+          <div class="group">
+            <input
+              type="password"
+              class="form-input"
+              name="password"
+              required=""
+              value=""
+            />
+            <label class="form-input-label">Password</label>
+          </div>
+
+          <div class="group">
+            <input
+              type="password"
+              class="form-input"
+              name="confirmPassword"
+              required=""
+              value=""
+            />
+            <label class="form-input-label">Confirm Password</label>
+          </div>
+          <button type="submit" class="custom-button">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
