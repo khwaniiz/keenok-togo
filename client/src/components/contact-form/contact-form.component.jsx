@@ -1,25 +1,78 @@
-import React, { useState } from 'react';
-
-import FormInput from '../form-input/form-input.component';
+import React, {useState} from 'react';
 import CustomButton from '../custom-button/custom-button.component';
 
-import * as sc from './contact-form.styles';
+import axios from 'axios'
+
+import './contact-form.styles.scss';
 
 const ContactForm = () => {
-  return (
-    <sc.ContactFormContainer>
-      <sc.ContactFormTitle>Contact</sc.ContactFormTitle>
-      <span>Let us know if you have any question</span>
 
-      <form>
-        <FormInput name='email' type='email' label='email' required />
+const [formData, setFormData] = useState({});
 
-        <sc.ButtonsBarContainer>
-          <CustomButton type='submit'> Submit </CustomButton>
-        </sc.ButtonsBarContainer>
-      </form>
-    </sc.ContactFormContainer>
-  );
+  const updateInput = e => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  const handleSubmit = async event => {
+    event.preventDefault()
+  
+    setFormData({
+      name: '',
+      email: '',
+      message: '',
+    })
+
+    const  {name, email, message} = formData;
+    console.log(name, email, message)
+
+    const form = await axios.post('/api/form', {
+        name,
+        email,
+        message
+    })
+  }
+
+    return (
+       <div className='ContactContainer'>
+     <h1>Contact us</h1>
+
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          onChange={updateInput}
+          value={formData.name || ''}
+          required
+        
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          onChange={updateInput}
+          value={formData.email || ''} 
+          required
+     
+        />
+        <textarea
+          type="text"
+          name="message"
+          placeholder="Message"
+          onChange={updateInput}
+          value={formData.message || ''} 
+          required
+      
+        ></textarea>
+           <CustomButton type="submit">Submit</CustomButton>
+        </form>
+     
+      
+    </div>
+      );
 };
 
 export default ContactForm;

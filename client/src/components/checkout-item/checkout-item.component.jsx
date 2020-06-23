@@ -8,7 +8,7 @@ import {
 } from '../../redux/cart/cart.actions';
 
 import * as sc from './checkout-item.styles';
-import { removeItemFromCart } from '../../redux/cart/cart.utils';
+//import { removeItemFromCart } from '../../redux/cart/cart.utils';
 
 const CheckoutItem = ({ cartItem, addItem, clearItem, removeItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
@@ -23,7 +23,7 @@ const CheckoutItem = ({ cartItem, addItem, clearItem, removeItem }) => {
         <span>{quantity}</span>
         <div onClick={() => addItem(cartItem)}>&#10095;</div>
       </sc.QuantityContainer>
-      <sc.TextContainer>{price}</sc.TextContainer>
+      <sc.TextContainer>${price}</sc.TextContainer>
       <sc.RemoveButtonContainer onClick={() => clearItem(cartItem)}>
         &#10005;
       </sc.RemoveButtonContainer>

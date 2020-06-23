@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/database';
 import 'firebase/auth';
-import Axios from 'axios';
 
 const config = {
   apiKey: 'AIzaSyBrL4NL0iTW_927rb6Gj2HpjKVUGU2EqXw',

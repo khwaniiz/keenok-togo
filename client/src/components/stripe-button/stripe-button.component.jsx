@@ -25,13 +25,14 @@ const StripeCheckoutButton = ({ price, history, checkoutSuccess }) => {
         console.log(token);
         alert('Payment Successful!');
         checkoutSuccess();
+        history.push('/');
       })
       .catch((error) => {
         console.log('Payment error: ', JSON.parse(error));
         alert('There was an issue with your payment.');
       });
 
-    history.push('/');
+    
   };
 
   return (

@@ -1,0 +1,72 @@
+.ContactContainer {
+  width: 400px;
+  display: flex;
+
+  flex-direction: column;
+
+  margin: 30px auto;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
+}
+
+h1 {
+  display: table;
+  color: #000;
+  font: 30px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 10px 0;
+}
+
+form {
+  position: relative;
+
+  input[type='password'] {
+    letter-spacing: 0.3em;
+  }
+
+  input,
+  textarea {
+    font-family: 'Open Sans Condensed', sans-serif;
+    background: none;
+    background-color: white;
+    color: grey;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid grey;
+    margin: 25px 0;
+    &:focus {
+      outline: none;
+      top: -14px;
+      font-size: 12px;
+      color: #000;
+    }
+
+    transition: all 0.2s ease-in-out;
+
+    &::placeholder {
+      transition: all 0.2s ease-in-out;
+      color: #999;
+    }
+
+    &:focus,
+    &.populated {
+      padding-top: 28px;
+      padding-bottom: 12px;
+
+      &::placeholder {
+        color: transparent;
+      }
+    }
+  }
+
+  textarea {
+    font-family: 'Source Sans Pro', sans-serif;
+    height: 100px;
+  }
+}

@@ -3,6 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
 const enforce = require('express-sslify');
+const nodemailer = require('nodemailer');
 
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
@@ -41,6 +42,47 @@ app.post('/payment', (req, res) => {
     } else {
       res.status(200).send({ success: stripeRes });
     }
+  });
+});
+app.post('/api/form', (req, res) => {
+  console.log(req.body);
+  nodemailer.createTestAccount((err, account) => {
+    const htmlEmail = `
+    <h3>Contact Detials</h3>
+    <ul>
+    <li>Name: ${req.body.name}</li>
+    <li>Email: ${req.body.email}</li>
+    </ul>
+    <h3>Message<h3>
+    <p>${req.body.message}</p>
+`;
+    let transporter = nodemailer.createTransport({
+      service: 'gmail',
+      port: 587,
+
+      auth: {
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD,
+      },
+    });
+
+    let mailOptions = {
+      from: req.body.email,
+      to: process.env.EMAIL,
+      replyTo: req.body.email,
+      subject: 'New Message',
+      text: req.body.message,
+      html: htmlEmail,
+    };
+
+    transporter.sendMail(mailOptions, (err, info) => {
+      if (err) {
+        return console.log(err);
+      }
+
+      console.log('Message sent: %s', info.message);
+      console.log('Message URL: %s', nodemailer.getTestMessageUrl(info));
+    });
   });
 });
 

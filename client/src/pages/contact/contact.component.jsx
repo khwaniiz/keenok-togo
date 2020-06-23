@@ -1,11 +1,14 @@
 import React from 'react';
+
+import GoogleMapsContainer from '../../components/google-map/google-map.component.jsx'
 import ContactForm from '../../components/contact-form/contact-form.component';
 
 import * as sc from './contact.styles';
 
 const ContactPage = () => (
   <sc.contactContainer>
-    <h1>Contact</h1>
+    <GoogleMapsContainer />
+    <ContactForm />
   </sc.contactContainer>
 );
 

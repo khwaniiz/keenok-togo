@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import Homepage from './pages/hompage/homepage.component';
+import Homepage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shop/shop.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-out.component';
 import CheckoutPage from './pages/checkout/checkout.component';
@@ -14,6 +14,7 @@ import { GlobalStyle } from './global.styles';
 
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { checkUserSession } from './redux/user/user.actions';
+
 // import { selectCollectionsForPreview } from './redux/shop/shop.selectors';
 
 const App = ({ currentUser, checkUserSession }) => {
